@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">PetGram</string>
+
+
+    <string name="tituloAC2">Confirmar Datos</string>
+    <string name="infoname">Nombre</string>
+    <string name="infotelefono">Tel. </string>
+    <string name="infoemail">Email: </string>
+    <string name="infodesc">Descripcion: </string>
+    <string name="txtbtnEditInfo">Editar Datos</string>
+
+
+    <string name="etnombre">Nombre Completo</string>
+    <string name="etfecha">Fecha de Nacimiento:</string>
+    <string name="ettelefono">Telefono</string>
+    <string name="etemail">E-mail</string>
+    <string name="titulodesc">Descripcion Contacto</string>
+    <string name="etdescripcion">Descripcion</string>
+    <string name="txtbtnNext">Siguiente</string>
+
+
+    <string name="pnombre">nombre</string>
+    <string name="pfecha">fecha</string>
+    <string name="ptelefono">telefono</string>
+    <string name="pemail">email</string>
+    <string name="pdescripcion">descripcion</string>
+
+</resources>
