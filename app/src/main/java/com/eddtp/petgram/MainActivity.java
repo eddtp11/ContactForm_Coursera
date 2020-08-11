@@ -78,5 +78,21 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+        
+        Bundle parametros = getIntent().getExtras();
+        if(parametros != null){
+
+            nombre = parametros.getString(getResources().getString(R.string.pnombre));
+            fecha = parametros.getString(getResources().getString(R.string.pfecha));
+            telefono = parametros.getString(getResources().getString(R.string.ptelefono));
+            email = parametros.getString(getResources().getString(R.string.pemail));
+            descripcion = parametros.getString(getResources().getString(R.string.pdescripcion));
+
+            etxName.setText(nombre);
+            etxFecha.setText(fecha);
+            etxPhone.setText(telefono);
+            etxEmail.setText(email);
+            etxDescription.setText(descripcion);
+        }
     }
 }
