@@ -20,11 +20,19 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText etxName;
-    private EditText etxPhone;
-    private EditText etxEmail;
-    private EditText etxDescription;
-    private EditText etxFecha;
+    private String nombre;
+    private String fecha;
+    private String telefono;
+    private String email;
+    private String descripcion;
+
+    Contacto user;
+    EditText etxName;
+    EditText etxPhone;
+    EditText etxEmail;
+    EditText etxDescription;
+    EditText etxFecha;
+    Button btnNext;
     DatePickerDialog.OnDateSetListener setListener;
 
     @Override
@@ -37,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         etxEmail = (EditText) findViewById(R.id.etxEmail);
         etxDescription = (EditText) findViewById(R.id.etxDescription);
         etxFecha = (EditText) findViewById(R.id.etxFecha);
+        btnNext = (Button) findViewById(R.id.btnNext);
 
         etxFecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,21 +73,29 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        Button btnNext = (Button) findViewById(R.id.btnNext);
+
         btnNext.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                nombre = etxName.getText().toString();
+                fecha = etxFecha.getText().toString();
+                telefono = etxPhone.getText().toString();
+                email = etxEmail.getText().toString();
+                descripcion = etxDescription.getText().toString();
+
+                user = new Contacto(nombre, fecha, telefono, email, descripcion);
+
                 Intent intent = new Intent(MainActivity.this, DatosUsuario.class);
-                intent.putExtra(getResources().getString(R.string.pnombre), etxName.getText().toString());
-                intent.putExtra(getResources().getString(R.string.pfecha), etxFecha.getText().toString());
-                intent.putExtra(getResources().getString(R.string.ptelefono), etxPhone.getText().toString());
-                intent.putExtra(getResources().getString(R.string.pemail), etxEmail.getText().toString());
-                intent.putExtra(getResources().getString(R.string.pdescripcion), etxDescription.getText().toString());
+                intent.putExtra(getResources().getString(R.string.pnombre), user.getNombre());
+                intent.putExtra(getResources().getString(R.string.pfecha), user.getFechaNacimiento());
+                intent.putExtra(getResources().getString(R.string.ptelefono), user.getTelefono());
+                intent.putExtra(getResources().getString(R.string.pemail), user.getEmail());
+                intent.putExtra(getResources().getString(R.string.pdescripcion), user.getDescripcion());
                 startActivity(intent);
                 finish();
             }
         });
-        
+
         Bundle parametros = getIntent().getExtras();
         if(parametros != null){
 
